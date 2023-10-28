@@ -54,4 +54,27 @@ function resetTimer() {
     update();
 }
 
+// Add task list functionality
+const taskList = document.getElementById("task-list");
+const newTaskInput = document.getElementById("new-task");
+const addTaskButton = document.getElementById("add-task-button");
+
+addTaskButton.addEventListener("click", function () {
+    const taskText = newTaskInput.value;
+    if (taskText.trim() !== "") {
+        addTask(taskText);
+        newTaskInput.value = "";
+    }
+});
+
+function addTask(taskText) {
+    const li = document.createElement("li");
+    li.textContent = taskText;
+    li.addEventListener("click", function () {
+        // Remove the task when clicked
+        taskList.removeChild(li);
+    });
+    taskList.appendChild(li);
+}
+
 update();
