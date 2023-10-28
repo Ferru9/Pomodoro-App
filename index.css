@@ -194,14 +194,14 @@
 
 .b,
 .short-break {
-  left: 22.5rem
+  left: 22.5rem;
 }
 
 .b {
   top: 7.88rem;
   left: 17.25rem;
   font-size: var(--font-size-77xl);
-  text-shadow: 0 4px 4px rgba(0, 0, 0, .25)
+  text-shadow: 0 4px 4px rgba(0, 0, 0, .25);
 }
 
 .timer-section-item {
@@ -483,7 +483,6 @@
   top: 2.06rem;
   left: 8.75rem;
   font-weight: 700;
-  color: inherit
 }
 
 .long-break3,
