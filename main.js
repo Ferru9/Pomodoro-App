@@ -10,6 +10,11 @@ function update() {
 
 document.getElementById("Start").addEventListener("click", function () {
     startTimer();
+    document.getElementById("ST").innerHTML = "PAUSE";
+
+    if(timerRunning == false){
+        document.getElementById("ST").innerHTML = "START";
+    }
 });
 
 document.getElementById("pom").addEventListener("click", function () {
@@ -27,25 +32,36 @@ document.getElementById("LB").addEventListener("click", function () {
     resetTimer();
 });
 
+let timerRunning = false; // Add a flag to track the timer state
+
 function startTimer() {
-    clearInterval(timerInterval);
-    minutes = current.minutes;
-    seconds = current.seconds;
-    timerInterval = setInterval(() => {
-        if (minutes === 0 && seconds === 0) {
-            clearInterval(timerInterval);
-            alert("Time's up!");
-        } else {
-            if (seconds === 0) {
-                minutes--;
-                seconds = 59;
-            } else {
-                seconds--;
+    if (!timerRunning) {
+        clearInterval(timerInterval);
+        timerRunning = true;
+        timerInterval = setInterval(() => {
+            if (minutes === 0 && seconds === 0) {
+                clearInterval(timerInterval);
+                alert("Time's up!");
+                timerRunning = false;
+            } 
+            else {
+                if (seconds === 0) {
+                    minutes--;
+                    seconds = 59;
+                } 
+                else {
+                    seconds--;
+                }
+                update();
             }
-            update();
-        }
-    }, 1000);
+        }, 1000);
+    } 
+    else {
+        clearInterval(timerInterval);
+        timerRunning = false;
+    }
 }
+
 
 function resetTimer() {
     clearInterval(timerInterval);
