@@ -269,11 +269,10 @@
 }
 
 .add-task-icon {
-  position: absolute; 
-  top: 1.5%;
-  left: 20.5%; 
+  position: absolute;
+  top: 36%;
+  left: 20.5%;
   max-width: 100%;
-  overflow: hidden;
   max-height: 100%;
 }
 
@@ -281,7 +280,7 @@
   position: relative;
   left: 38.5%;
   width: 64.44rem;
-  height: 15.75rem
+  height: auto;
 }
 
 #new-task {
@@ -289,11 +288,34 @@
   width: 200px;
   height: 50px;
   font-size: 20px;
+  overflow-y: auto;
+}
+
+.task-container {
+  max-height: 11111100px; 
+  overflow-y: auto; 
 }
 
 #task-list {
   font-size: 20px;
   list-style-type: decimal;
+}
+
+#task-list li {
+  font-size: 35px;
+}
+
+#task-count {
+  font-size: 35px;
+}
+
+#task-count-header {
+  font-size: 35px;
+}
+
+.delete-icon {
+  max-width: 35px;
+  max-height: 35px;
 }
 
 .frame4 {
@@ -305,7 +327,9 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  justify-content: center
+  justify-content: center;
+  height: auto;
+  
 }
 
 .musical-note-logo-icon1 {

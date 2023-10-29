@@ -1,3 +1,5 @@
+const maxTaskCount = 3; // sets the maximum allowed task count
+
 let current = { minutes: 25, seconds: 0 };
 let seconds = current.seconds;
 let minutes = current.minutes;
@@ -71,12 +73,21 @@ const newTaskInput = document.getElementById("new-task");
 const addTaskButton = document.getElementById("add-task-button");
 
 function addTask(taskText) {
+    if (taskCount >= maxTaskCount) {
+        alert("You can't add more than 3 tasks at once. This is to intended to help keep you on track!");
+        return;
+    }
+
     const li = document.createElement("li");
     li.textContent = taskText;
     li.draggable = true;
 
-    const deleteButton = document.createElement("button");
-    deleteButton.textContent = "Delete";
+    const deleteButton = document.createElement("img");
+    deleteButton.src = "./public/delete.png"; 
+    deleteButton.alt = "Delete";
+    deleteButton.className = "delete-icon";
+
+    // click event handler for the delete image
     deleteButton.addEventListener("click", function () {
         taskList.removeChild(li);
         taskCount--;
@@ -105,6 +116,7 @@ function addTask(taskText) {
         event.preventDefault();
     });
 
+    // appends the task to the task list within the task container
     taskList.appendChild(li);
     taskCount++;
     updateTaskCount();
@@ -122,6 +134,11 @@ addTaskButton.addEventListener("click", function () {
     if (taskText.trim() !== "") {
         addTask(taskText);
         newTaskInput.value = "";
+    }
+    else
+    {
+        alert("You cannot add an empty task, please input a task and try again.");
+        return;
     }
 });
 
