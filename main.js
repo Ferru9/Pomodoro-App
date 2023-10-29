@@ -3,7 +3,6 @@ let seconds = current.seconds;
 let minutes = current.minutes;
 let timerInterval;
 
-//
 function update() {
     const num = document.getElementById("number");
     num.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
@@ -11,11 +10,7 @@ function update() {
 
 document.getElementById("Start").addEventListener("click", function () {
     startTimer();
-    document.getElementById("ST").innerHTML = "PAUSE";
-
-    if(timerRunning == false){
-        document.getElementById("ST").innerHTML = "START";
-    }
+    document.getElementById("ST").innerHTML = timerRunning ? "PAUSE" : "START";
 });
 
 document.getElementById("pom").addEventListener("click", function () {
@@ -33,7 +28,7 @@ document.getElementById("LB").addEventListener("click", function () {
     resetTimer();
 });
 
-let timerRunning = false; // Add a flag to track the timer state
+let timerRunning = false;
 
 function startTimer() {
     if (!timerRunning) {
@@ -44,25 +39,21 @@ function startTimer() {
                 clearInterval(timerInterval);
                 alert("Time's up!");
                 timerRunning = false;
-            } 
-            else {
+            } else {
                 if (seconds === 0) {
                     minutes--;
                     seconds = 59;
-                } 
-                else {
+                } else {
                     seconds--;
                 }
                 update();
             }
         }, 1000);
-    } 
-    else {
+    } else {
         clearInterval(timerInterval);
         timerRunning = false;
     }
 }
-
 
 function resetTimer() {
     clearInterval(timerInterval);
@@ -71,7 +62,6 @@ function resetTimer() {
     update();
 }
 
-// Add task list functionality
 const taskList = document.getElementById("task-list");
 const newTaskInput = document.getElementById("new-task");
 const addTaskButton = document.getElementById("add-task-button");
@@ -79,6 +69,7 @@ const addTaskButton = document.getElementById("add-task-button");
 function addTask(taskText) {
     const li = document.createElement("li");
     li.textContent = taskText;
+    li.draggable = true; // Make the task item draggable
 
     // Create a delete button for the task
     const deleteButton = document.createElement("button");
@@ -93,19 +84,36 @@ function addTask(taskText) {
     // Append the delete button to the task item
     li.appendChild(deleteButton);
 
+    // Add event listeners for drag-and-drop
+    li.addEventListener('dragstart', (event) => {
+        event.dataTransfer.setData('text/plain', event.target.textContent);
+    });
+
+    li.addEventListener('dragover', (event) => {
+        event.preventDefault();
+    });
+
+    li.addEventListener('drop', (event) => {
+        event.preventDefault();
+        const data = event.dataTransfer.getData('text/plain');
+        const draggedItem = document.querySelector('li[draggable="true"][data-dragging="true"]');
+
+        if (draggedItem !== null && li !== draggedItem) {
+            taskList.insertBefore(draggedItem, li.nextSibling);
+        }
+    });
+
     taskList.appendChild(li);
     taskCount++; // Increase the task count
     updateTaskCount(); // Update the displayed task count
 }
 
-let taskCount = 0; // Initialize the task counter
+let taskCount = 0;
 
 function updateTaskCount() {
     const taskCountElement = document.getElementById("task-count");
     taskCountElement.textContent = taskCount;
 }
-
-updateTaskCount(); // Initialize the task count display
 
 addTaskButton.addEventListener("click", function () {
     const taskText = newTaskInput.value;
@@ -114,3 +122,14 @@ addTaskButton.addEventListener("click", function () {
         newTaskInput.value = "";
     }
 });
+
+taskList.addEventListener('dragstart', function (event) {
+    event.target.setAttribute('data-dragging', 'true');
+    event.dataTransfer.setData('text/plain', event.target.textContent);
+});
+
+taskList.addEventListener('dragend', function (event) {
+    event.target.removeAttribute('data-dragging');
+});
+
+updateTaskCount();
