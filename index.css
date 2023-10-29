@@ -268,9 +268,9 @@
   color: var(--color-silver)
 }
 
-.vector-icon {
+.add-task-icon {
   position: absolute; 
-  top: 8%;
+  top: 1.5%;
   left: 20.5%; 
   max-width: 100%;
   overflow: hidden;
@@ -288,7 +288,12 @@
   position: relative;
   width: 200px;
   height: 50px;
-  font-size: 15px;
+  font-size: 20px;
+}
+
+#task-list {
+  font-size: 20px;
+  list-style-type: decimal;
 }
 
 .frame4 {
