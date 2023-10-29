@@ -3,6 +3,7 @@ let seconds = current.seconds;
 let minutes = current.minutes;
 let timerInterval;
 
+//
 function update() {
     const num = document.getElementById("number");
     num.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
