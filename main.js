@@ -2,6 +2,7 @@ let current = { minutes: 25, seconds: 0 };
 let seconds = current.seconds;
 let minutes = current.minutes;
 let timerInterval;
+let test = document.getElementById("SB");
 
 function update() {
     const num = document.getElementById("number");
@@ -16,16 +17,19 @@ document.getElementById("Start").addEventListener("click", function () {
 document.getElementById("pom").addEventListener("click", function () {
     current = { minutes: 25, seconds: 0 };
     resetTimer();
+    document.getElementById('selB').style.left = "6.81rem";
 });
 
 document.getElementById("SB").addEventListener("click", function () {
     current = { minutes: 10, seconds: 0 };
     resetTimer();
+    document.getElementById('selB').style.left = "21rem";
 });
 
 document.getElementById("LB").addEventListener("click", function () {
     current = { minutes: 15, seconds: 0 };
     resetTimer();
+    document.getElementById('selB').style.left = "35.5rem";
 });
 
 let timerRunning = false;
