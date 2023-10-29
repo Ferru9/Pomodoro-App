@@ -73,32 +73,26 @@ const addTaskButton = document.getElementById("add-task-button");
 function addTask(taskText) {
     const li = document.createElement("li");
     li.textContent = taskText;
-    li.draggable = true; // Make the task item draggable
+    li.draggable = true;
 
-    // Create a delete button for the task
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
     deleteButton.addEventListener("click", function () {
-        // Remove the task when the delete button is clicked
         taskList.removeChild(li);
-        taskCount--; // Decrease the task count
-        updateTaskCount(); // Update the displayed task count
+        taskCount--;
+        updateTaskCount();
     });
 
-    // Append the delete button to the task item
     li.appendChild(deleteButton);
 
-    // Add event listeners for drag-and-drop
     li.addEventListener('dragstart', (event) => {
         event.dataTransfer.setData('text/plain', event.target.textContent);
     });
 
-    // Handle the dragover event on the task item
     li.addEventListener('dragover', (event) => {
         event.preventDefault();
         const draggedItem = document.querySelector('li[draggable="true"][data-dragging="true"]');
         if (draggedItem !== null && li !== draggedItem) {
-            // Insert the dragged item before or after the current item
             if (event.clientY < li.getBoundingClientRect().top + li.offsetHeight / 2) {
                 taskList.insertBefore(draggedItem, li);
             } else {
@@ -107,14 +101,13 @@ function addTask(taskText) {
         }
     });
 
-    // Handle the drop event on the task item
     li.addEventListener('drop', (event) => {
         event.preventDefault();
     });
 
     taskList.appendChild(li);
-    taskCount++; // Increase the task count
-    updateTaskCount(); // Update the displayed task count
+    taskCount++;
+    updateTaskCount();
 }
 
 let taskCount = 0;
@@ -132,7 +125,6 @@ addTaskButton.addEventListener("click", function () {
     }
 });
 
-// Handle the dragstart and dragend events for the entire task list
 taskList.addEventListener('dragstart', function (event) {
     event.target.setAttribute('data-dragging', 'true');
     event.dataTransfer.setData('text/plain', event.target.textContent);

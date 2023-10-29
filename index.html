@@ -33,7 +33,7 @@
             <div class="player-inner"></div>
             <img class="left-seek-icon" alt="" src="./public/left-seek.svg" />
 
-            <img class="right-seek-icon" alt="" src="./public/right-seek.svg" />
+            <img class "right-seek-icon" alt="" src="./public/right-seek.svg" />
 
             <div class="player-child1"></div>
             <div class="player-child2"></div>
@@ -49,26 +49,23 @@
       </div>
       <div class="timer-section">
         <div class="timer-section-child" id="selB"></div>
-        <a class="pomodoro3" id = "pom">Pomodoro</a>
-        <a class="long-break3" id = "LB">Long Break</a>
-        <a class="short-break3"id = "SB">Short Break</a>
-        <b class="b" id = "number">25:00</b>
+        <a class="pomodoro3" id="pom">Pomodoro</a>
+        <a class="long-break3" id="LB">Long Break</a>
+        <a class="short-break3" id="SB">Short Break</a>
+        <b class="b" id="number">25:00</b>
         <button class="rectangle-button" id="Start"></button>
-        <b class="start" id = "ST">START</b>
+        <b class="start" id="ST">START</b>
       </div>
       <div class="frame4">
         <div class="task-section">
-         <div class="task-list">  		
-		<ul id="task-list">
-  		<!-- Existing task items will be appended here -->
-		</ul>
-		<input type="text" id="new-task" placeholder="Add a task">
-		<button id="add-task-button">Add Task</button>
-		<p>Task Count: <span id="task-count">0</span></p>
-	</div>
-
-
-          <img class="vector-icon" alt="" src="./public/vector.svg" />
+          <div class="task-list">
+            <ul id="task-list">
+              <!-- Existing task items will be appended here -->
+            </ul>
+            <input type="text" id="new-task" placeholder="Add a task">
+            <img class="vector-icon" alt="" src="./public/vector.svg" id="add-task-button" />
+            <p>Task Count: <span id="task-count">0</span></p>
+          </div>
         </div>
       </div>
       <img
@@ -78,9 +75,6 @@
       />
     </div>
   </div>
-  </body>
-
-  <body>
-    <script src="main.js"></script>
+  <script src="main.js"></script> <!-- Move the script tag to the end of the body -->
   </body>
 </html>
