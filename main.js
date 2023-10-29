@@ -76,6 +76,37 @@ const taskList = document.getElementById("task-list");
 const newTaskInput = document.getElementById("new-task");
 const addTaskButton = document.getElementById("add-task-button");
 
+function addTask(taskText) {
+    const li = document.createElement("li");
+    li.textContent = taskText;
+
+    // Create a delete button for the task
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.addEventListener("click", function () {
+        // Remove the task when the delete button is clicked
+        taskList.removeChild(li);
+        taskCount--; // Decrease the task count
+        updateTaskCount(); // Update the displayed task count
+    });
+
+    // Append the delete button to the task item
+    li.appendChild(deleteButton);
+
+    taskList.appendChild(li);
+    taskCount++; // Increase the task count
+    updateTaskCount(); // Update the displayed task count
+}
+
+let taskCount = 0; // Initialize the task counter
+
+function updateTaskCount() {
+    const taskCountElement = document.getElementById("task-count");
+    taskCountElement.textContent = taskCount;
+}
+
+updateTaskCount(); // Initialize the task count display
+
 addTaskButton.addEventListener("click", function () {
     const taskText = newTaskInput.value;
     if (taskText.trim() !== "") {
@@ -83,15 +114,3 @@ addTaskButton.addEventListener("click", function () {
         newTaskInput.value = "";
     }
 });
-
-function addTask(taskText) {
-    const li = document.createElement("li");
-    li.textContent = taskText;
-    li.addEventListener("click", function () {
-        // Remove the task when clicked
-        taskList.removeChild(li);
-    });
-    taskList.appendChild(li);
-}
-
-update();
