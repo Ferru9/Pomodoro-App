@@ -199,7 +199,7 @@
 
 .b {
   top: 7.88rem;
-  left: 17.25rem;
+  left:calc(50% - 1.3em);
   font-size: var(--font-size-77xl);
   text-shadow: 0 4px 4px rgba(0, 0, 0, .25);
 }
@@ -560,7 +560,7 @@
 .frame-icon1 {
   position: relative;
   top: 0;
-  left: 46%;
+  left: calc(50% - 6.625rem);;
   width: 13.25rem;
   height: 10.94rem;
   overflow: hidden;
