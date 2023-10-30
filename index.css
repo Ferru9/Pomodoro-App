@@ -486,12 +486,14 @@
 .frame9 {
   box-sizing: border-box;
   width: 64.44rem
+
+  
 }
 
 .frame-child1 {
   position: relative;
   background-color: var(--color-indianred-200);
-  border-bottom: 3px solid var(--color-gray);
+  
   height: 7.19rem
 }
 
@@ -500,7 +502,7 @@
   top: 1.94rem;
   left: 12.75rem;
   background: linear-gradient(#c85b55, #c85b55), linear-gradient(#c85b55, #c85b55), linear-gradient(#c85b55, #c85b55), linear-gradient(#c85b55, #c85b55), #c85b55;
-  border: 1px solid var(--color-gray);
+
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -556,9 +558,9 @@
 }
 
 .frame-icon1 {
-  position: absolute;
+  position: relative;
   top: 0;
-  left: 38.31rem;
+  left: 46%;
   width: 13.25rem;
   height: 10.94rem;
   overflow: hidden;
