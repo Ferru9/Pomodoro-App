@@ -291,11 +291,6 @@
   overflow-y: auto;
 }
 
-.task-container {
-  max-height: 11111100px; 
-  overflow-y: auto; 
-}
-
 #task-list {
   font-size: 20px;
   list-style-type: decimal;

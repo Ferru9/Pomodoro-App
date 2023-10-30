@@ -74,7 +74,7 @@ const addTaskButton = document.getElementById("add-task-button");
 
 function addTask(taskText) {
     if (taskCount >= maxTaskCount) {
-        alert("You can't add more than 3 tasks at once. This is to intended to help keep you on track!");
+        alert("You can't add more than 3 tasks at once. This is intended to help keep you on track!");
         return;
     }
 
