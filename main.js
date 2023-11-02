@@ -194,14 +194,16 @@ document.addEventListener("DOMContentLoaded", function() {
       currentSongIndex = (currentSongIndex - 1 + playlist.length) % playlist.length;
       audio.src = playlist[currentSongIndex];
       audio.play();
-      playButton.src = './public/pause.svg';
+      document.getElementById("play").style.display = "none";
+      document.getElementById("pause").style.display = "block";
     });
   
     nextButton.addEventListener('click', function() {  // Next song
       currentSongIndex = (currentSongIndex + 1) % playlist.length;
       audio.src = playlist[currentSongIndex];
       audio.play();
-      playButton.src = './public/pause.svg';
+      document.getElementById("play").style.display = "none";
+      document.getElementById("pause").style.display = "block";
     });
   
     slider.addEventListener('input', function() {
