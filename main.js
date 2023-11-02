@@ -1,3 +1,15 @@
+
+    // Creating the audio element
+    const audio = new Audio();
+  
+    // Playlist of songs
+    const playlist = ['calm_track1.mp3', 'calm_track2.mp3', 'calm_track3.mp3']; // add your song files here
+    let currentSongIndex = 0;
+  
+    // Load the first song
+    audio.src = playlist[currentSongIndex];
+
+
 const maxTaskCount = 3; // sets the maximum allowed task count
 
 let current = { minutes: 25, seconds: 0 };
