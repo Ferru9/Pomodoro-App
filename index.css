@@ -361,6 +361,17 @@
   height: 6.49rem
 }
 
+.player-child-button {
+  z-index: 999;
+  position: absolute;
+  top: 0;
+  left: 10.19rem;
+  border-radius: 50%;
+  width: 6.49rem;
+  height: 6.49rem
+  
+}
+
 .player-inner,
 .player-item {
   position: absolute;
@@ -439,9 +450,9 @@
 
 .jazz1 {
   position: absolute;
-  top: .38rem;
-  left: 13.94rem;
-  font-size: var(--font-size-17xl);
+  top: .50rem;
+  left: 13.03rem;
+  font-size: 2em;
   font-family: var(--font-inter);
   color: var(--color-indianred-200)
 }
@@ -572,4 +583,29 @@
   font-size: var(--font-size-17xl);
   color: var(--color-white);
   font-family: var(--font-inter)
+}
+
+.slider-container {
+  position: absolute;
+  top: 9.08rem;
+  left: .06rem;
+  width: 26.75rem;
+  height: .49rem
+}
+
+.slider1 {
+  position: absolute;
+  top: 0rem;
+  left: .06rem;
+  background-color: var(--color-gainsboro-200);
+  width: 26.75rem;
+  height: .49rem
+}
+
+.slider-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: black; /* Change to your desired color */
 }

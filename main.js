@@ -152,3 +152,80 @@ taskList.addEventListener('dragend', function (event) {
 });
 
 updateTaskCount();
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Selecting necessary elements
+    const player = document.querySelector('.player1');
+    const playButton = document.querySelector('.player-child-button');
+    const prevButton = document.querySelector('.left-seek-icon');  // Previous song button
+    const nextButton = document.querySelector('.right-seek-icon');  // Next song button
+    const slider = document.querySelector('.slider1');
+    const currentTimeDisplay = document.querySelector('.div3');
+    const durationDisplay = document.querySelector('.div2');
+  
+    // Creating the audio element
+    const audio = new Audio();
+  
+    // Playlist of songs
+    const playlist = ['calm_track1.mp3', 'calm_track2.mp3', 'calm_track3.mp3']; // add your song files here
+    let currentSongIndex = 0;
+  
+    // Load the first song
+    audio.src = playlist[currentSongIndex];
+  
+    // Event listeners
+    playButton.addEventListener('click', function() {
+      if (audio.paused) {
+        audio.play();
+        playButton.src = './public/pause.svg';
+      } else {
+        audio.pause();
+        playButton.src = './public/play.svg';
+      }
+    });
+  
+    prevButton.addEventListener('click', function() {  // Previous song
+      currentSongIndex = (currentSongIndex - 1 + playlist.length) % playlist.length;
+      audio.src = playlist[currentSongIndex];
+      audio.play();
+      playButton.src = './public/pause.svg';
+    });
+  
+    nextButton.addEventListener('click', function() {  // Next song
+      currentSongIndex = (currentSongIndex + 1) % playlist.length;
+      audio.src = playlist[currentSongIndex];
+      audio.play();
+      playButton.src = './public/pause.svg';
+    });
+  
+    slider.addEventListener('input', function() {
+      audio.currentTime = audio.duration * (slider.value / 100);
+    });
+  
+    audio.addEventListener('timeupdate', function() {
+      const progress = (audio.currentTime / audio.duration) * 100;
+      slider.value = progress;
+      currentTimeDisplay.textContent = formatTime(audio.currentTime);
+    });
+  
+    audio.addEventListener('loadedmetadata', function() {
+      durationDisplay.textContent = formatTime(audio.duration);
+    });
+  
+    function formatTime(seconds) {
+      const minutes = Math.floor(seconds / 60);
+      const remainingSeconds = Math.floor(seconds % 60);
+      return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+    }
+  });
+
+  audio.addEventListener('timeupdate', function() {
+    const progress = (audio.currentTime / audio.duration) * 100;
+    slider.value = progress;
+    document.querySelector('.slider-fill').style.width = `${progress}%`; // Update fill width
+    currentTimeDisplay.textContent = formatTime(audio.currentTime);
+  });
+
+  
+
