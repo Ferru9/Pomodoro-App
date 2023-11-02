@@ -451,7 +451,7 @@
 .jazz1 {
   position: absolute;
   top: .50rem;
-  left: 13.03rem;
+  left: 14.2rem;
   font-size: 2em;
   font-family: var(--font-inter);
   color: var(--color-indianred-200)
@@ -608,4 +608,32 @@
   left: 0;
   height: 100%;
   background-color: black; /* Change to your desired color */
+}
+
+.music-player-item{
+  z-index: 998;
+  position: absolute;
+  top: 1.7rem;
+  left: 12.4rem;
+
+  width: 3rem;
+  height: 3rem
+}
+
+#pause{
+  display: none;
+  top: 1.7rem;
+  left: 11.9rem;
+
+  width: 3rem;
+  height: 3rem
+}
+
+#play{
+  display: block;
+  top: 1.7rem;
+  left: 12.3rem;
+
+  width: 3rem;
+  height: 3rem
 }

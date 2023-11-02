@@ -157,6 +157,7 @@ updateTaskCount();
 document.addEventListener("DOMContentLoaded", function() {
     // Selecting necessary elements
     const player = document.querySelector('.player1');
+    const playIcon = document.querySelector('music-player-item');
     const playButton = document.querySelector('.player-child-button');
     const prevButton = document.querySelector('.left-seek-icon');  // Previous song button
     const nextButton = document.querySelector('.right-seek-icon');  // Next song button
@@ -176,13 +177,17 @@ document.addEventListener("DOMContentLoaded", function() {
   
     // Event listeners
     playButton.addEventListener('click', function() {
-      if (audio.paused) {
-        audio.play();
-        playButton.src = './public/pause.svg';
-      } else {
-        audio.pause();
-        playButton.src = './public/play.svg';
-      }
+
+
+        if (audio.paused) {
+            audio.play();
+            document.getElementById("play").style.display = "none";
+            document.getElementById("pause").style.display = "block";
+        } else {
+            audio.pause();
+            document.getElementById("play").style.display = "block";
+            document.getElementById("pause").style.display = "none";
+        }
     });
   
     prevButton.addEventListener('click', function() {  // Previous song
@@ -226,6 +231,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelector('.slider-fill').style.width = `${progress}%`; // Update fill width
     currentTimeDisplay.textContent = formatTime(audio.currentTime);
   });
+
 
   
 
