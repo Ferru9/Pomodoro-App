@@ -28,6 +28,11 @@ document.getElementById("Start").addEventListener("click", function () {
     document.getElementById("ST").innerHTML = timerRunning ? "PAUSE" : "START";
 });
 
+document.getElementById("ST").addEventListener("click", function () {
+    startTimer();
+    document.getElementById("ST").innerHTML = timerRunning ? "PAUSE" : "START";
+});
+
 document.getElementById("pom").addEventListener("click", function () {
     current = { minutes: 25, seconds: 0 };
     resetTimer();
