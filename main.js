@@ -3,7 +3,7 @@
     const audio = new Audio();
   
     // Playlist of songs
-    const playlist = ['calm_track1.mp3', 'calm_track2.mp3', 'calm_track3.mp3']; // add your song files here
+    const playlist = ['calm_track1.mp3', 'calm_track2.mp3', 'calm_track3.mp3','song1.mp3']; // add your song files here
     let currentSongIndex = 0;
   
     // Load the first song
@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const audio = new Audio();
   
     // Playlist of songs
-    const playlist = ['calm_track1.mp3', 'calm_track2.mp3', 'calm_track3.mp3']; // add your song files here
+    const playlist = ['calm_track1.mp3', 'calm_track2.mp3', 'calm_track3.mp3','song1.mp3']; // add your song files here
     let currentSongIndex = 0;
   
     // Load the first song
