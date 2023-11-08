@@ -1,3 +1,5 @@
+/* COMP 3450: Joel Canonico, Hamza Ahmad, Fernando Ferrufino */
+
 .musical-note-logo-icon {
   position: absolute;
   top: .06rem;
@@ -637,3 +639,56 @@
   width: 3rem;
   height: 3rem
 }
+
+/* Add this to your existing CSS */
+
+.volume-slider {
+  -webkit-appearance: none; /* Override default appearance */
+  width: 100px; /* Length of the slider */
+  height: 3px; /* Thickness of the slider */
+  border-radius: 5px; /* Rounded corners */
+  background: #D3D3D3; /* Background of the slider */
+  outline: none; /* Removes the outline */
+  opacity: 0.7; /* Transparency (change as you like) */
+  -webkit-transition: .2s; /* Smooth transition */
+  transition: opacity .2s;
+  position: absolute;
+  top: -4.5em;
+  left: 22em;
+  
+}
+
+.volume-slider:hover {
+  opacity: 1; /* Full opacity on hover */
+}
+
+/* Style for the slider thumb (the draggable circle) */
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default appearance */
+  appearance: none;
+  width: 15px; /* Width of the thumb */
+  height: 15px; /* Height of the thumb */
+  border-radius: 50%; /* Make it circular */
+  background: #6a6a6a; /* Thumb color */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.volume-slider::-moz-range-thumb {
+  width: 15px; /* Width of the thumb */
+  height: 15px; /* Height of the thumb */
+  border: none; /* Remove default border */
+  border-radius: 50%; /* Make it circular */
+  background: #6a6a6a; /* Thumb color */
+  cursor: pointer; /* Cursor on hover */
+}
+
+#volume{
+  position: absolute;
+  width: 2em;
+  height: 2em;
+  top: -4.3em;
+  left: 14em;
+ 
+}
+
+

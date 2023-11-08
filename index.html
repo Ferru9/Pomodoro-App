@@ -1,3 +1,5 @@
+<!-- COMP 3450: Joel Canonico, Hamza Ahmad, Fernando Ferrufino -->
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -18,6 +20,7 @@
   <body>
     <div class="computer-screen">
       <div class="main-banner1">
+        
         <div class="music-player1">
           <img
             class="musical-note-logo-icon1"
@@ -26,6 +29,10 @@
           />
 
           <div class="player1">
+           
+            <img class="music-volume" id="volume" alt="" src="./public/volume.svg" />
+            <input type="range" class="volume-slider" min="0" max="100" value="100" />
+            
             <div class="div2">0</div>
             <div class="div3">0</div>
             <div class="player-child-button"></div>
@@ -37,14 +44,22 @@
             <img class="right-seek-icon" alt="" src="./public/right-seek.svg" />
 
             
+
+            
             
             <div class="slider-container">
               <input type="range" class="slider1 slider-container" value="0" />
             
             </div>
+
+
+                <!-- Volume Control -->
+<!-- Inside your HTML, after the slider for the track progress, add a volume slider -->
+
           </div>
           <div class="music-player-child"></div>
-          <b class="jazz1">Relaxing</b>
+          <b class="jazz1">Music</b>
+          
 
         </div>
 

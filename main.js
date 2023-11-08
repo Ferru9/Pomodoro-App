@@ -1,4 +1,7 @@
+// COMP 3450: Joel Canonico, Hamza Ahmad, Fernando Ferrufino 
 
+
+//Music player done by Fernando Ferrufino
     // Creating the audio element
     const audio = new Audio();
   
@@ -171,6 +174,7 @@ taskList.addEventListener('dragend', function (event) {
 updateTaskCount();
 
 
+//Music player done by Fernando Ferrufino
 document.addEventListener("DOMContentLoaded", function() {
     // Selecting necessary elements
     const player = document.querySelector('.player1');
@@ -242,14 +246,47 @@ document.addEventListener("DOMContentLoaded", function() {
       const remainingSeconds = Math.floor(seconds % 60);
       return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
     }
+
+
+    // Reference to the volume image and volume slider
+    const volumeImage = document.querySelector('.music-volume');
+    const volumeSlider = document.querySelector('.volume-slider');
+
+    // Variable to store the last non-muted volume value
+    let lastVolume = volumeSlider.value;
+
+    // Add event listener to the volume image
+    volumeImage.addEventListener('click', function() {
+        if (!audio.muted) {
+            audio.muted = true;
+            lastVolume = volumeSlider.value; // Store the current volume
+            volumeSlider.value = 0; // Set slider to 0
+            audio.volume = 0; // Mute the audio
+            // Change the image to indicate that the sound is muted
+            volumeImage.src = './public/volume-mute.svg'; // Path to your mute icon
+        } else {
+            audio.muted = false;
+            volumeSlider.value = lastVolume; // Restore the volume slider to the stored volume
+            audio.volume = lastVolume / 100; // Unmute the audio to the last volume
+            // Change the image back to the volume icon
+            volumeImage.src = './public/volume.svg'; // Path to your volume icon
+        }
+    });
+
+    // Add input event listener to the volume slider to handle volume changes
+    volumeSlider.addEventListener('input', function(e) {
+        if (audio.muted) {
+            audio.muted = false; // Unmute if currently muted
+            volumeImage.src = './public/volume.svg'; // Change back to volume icon
+        }
+        const volume = e.target.value;
+        lastVolume = volume; // Update the lastVolume whenever the slider is changed
+        audio.volume = volume / 100; // Update the audio volume
+    });
   });
 
-  audio.addEventListener('timeupdate', function() {
-    const progress = (audio.currentTime / audio.duration) * 100;
-    slider.value = progress;
-    document.querySelector('.slider-fill').style.width = `${progress}%`; // Update fill width
-    currentTimeDisplay.textContent = formatTime(audio.currentTime);
-  });
+
+
 
 
   
